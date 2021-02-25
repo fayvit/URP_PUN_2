@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,32 +10,34 @@ namespace MyTestPUN_2
         [SerializeField] private ControlledMoveForCharacter thisControl;
         [SerializeField] private float distanciaChecaMovimento = 1.2f;
 
+        private PhotonView pv;
+
         // Start is called before the first frame update
         void Start()
         {
             thisControl.StartFields(transform);
+            pv = GetComponent<PhotonView>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (pv.IsMine)
             {
-                Debug.Log("Meu input");
-                Vector3 V;
-                if (GetRaycastPoint.GetPoint(out V))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("meu V: " + V);
-                    thisControl.ModificarOndeChegar(V);
+                    Vector3 V;
+                    if (GetRaycastPoint.GetPoint(out V))
+                    {
+                        thisControl.ModificarOndeChegar(V);
+                    }
+                }
+
+                if (thisControl.UpdatePosition(distanciaChecaMovimento))
+                {
+
                 }
             }
-
-            if (thisControl.UpdatePosition(distanciaChecaMovimento))
-            { 
-            
-            }
         }
-    }
-
-    
+    } 
 }

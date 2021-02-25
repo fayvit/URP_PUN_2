@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OrigimPUN_2/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
-    path: Assets/OrigimPUN_2/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-GameScene.unity
-    guid: 98efc37d6307844488eb3e4247dde7e9
+    path: Assets/Scenes/TesteScene.unity
+    guid: c18f10751af566c4b95154fb20726b90
   m_configObjects: {}
